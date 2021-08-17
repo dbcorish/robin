@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">Robin</string>
+
+    <string name="button_login">Login</string>
+    <string name="button_signup">Create account</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Username</string>
+
+    <string name="robin_logo">Robin Logo</string>
+
+    <string name="text_signup">Create an account</string>
+    <string name="robin_logo_at_top_of_screen">Robin logo at top of screen</string>
+    <string name="user_profile_picture">User profile picture</string>
+    <string name="send_tweet">Send tweet</string>
+    <string name="tweet_number_1">Tweet number 1</string>
+    <string name="tweet_number_two">Tweet number two</string>
+    <string name="tweet_number_3">Tweet number 3</string>
+</resources>

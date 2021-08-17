@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608196959555",
+    "project_id": "robin-ce709",
+    "storage_bucket": "robin-ce709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608196959555:android:416bff62d27767aba023f6",
+        "android_client_info": {
+          "package_name": "com.dbcorish.robin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608196959555-qftn647kqf705jlr5j7dl9pokf0i7v8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEUWZfkLEKVkUYmOAVviF1sEofBZII6gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608196959555-qftn647kqf705jlr5j7dl9pokf0i7v8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

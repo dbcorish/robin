@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <color name="black">#FF000000</color>
+
+    <color name="red_500">#ff2c15</color>
+    <color name="red_700">#e30413</color>
+
+    <color name="teal_200">#FF03DAC5</color>
+
+    <color name="transparent_grey">#99CCCCCC</color>
+
+    <color name="twitter_dark">#16202b</color>
+
+    <color name="white">#FFFFFFFF</color>
+</resources>
