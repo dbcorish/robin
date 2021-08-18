@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/twitter_dark"
     tools:context=".activities.HomeActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/twitter_dark"
         android:orientation="horizontal"
         app:cardElevation="4dp"
         app:contentPadding="5dp"
@@ -29,7 +27,7 @@
             <ImageView
                 android:layout_width="@dimen/standard_image"
                 android:layout_height="@dimen/standard_image"
-                android:background="@color/twitter_dark"
+                android:background="@color/colorPrimary"
                 android:contentDescription="@string/user_profile_picture"
                 android:src="@drawable/default_user">
             </ImageView>
@@ -40,37 +38,30 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@color/white"
-            android:backgroundTint="@color/twitter_dark"
             android:contentDescription="@string/robin_logo_at_top_of_screen"
             android:src="@drawable/logo">
         </ImageView>
-
-        <!--        <androidx.cardview.widget.CardView-->
-        <!--            android:id="@+id/searchBar"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_gravity="center_vertical"-->
-        <!--            android:layout_marginStart="60dp"-->
-        <!--            android:padding="20dp"-->
-        <!--            android:visibility="gone"-->
-        <!--            app:cardCornerRadius="@dimen/standard_corner_radius">-->
-
-        <!--            <EditText-->
-        <!--                android:id="@+id/search"-->
-        <!--                android:layout_width="@dimen/standard_width"-->
-        <!--                android:layout_height="@dimen/search_height"-->
-        <!--                android:textColorHint="@color/dark_grey"-->
-        <!--                android:background="@color/colorPrimary"-->
-        <!--                android:hint="@string/hint_search"-->
-        <!--                android:paddingLeft="@dimen/grid_2x"-->
-        <!--                android:paddingRight="@dimen/grid_2x"-->
-        <!--                android:textColor="@color/black"-->
-        <!--                android:drawableEnd="@android:drawable/ic_menu_search"-->
-        <!--                android:imeOptions="actionSearch"-->
-        <!--                android:inputType="text"-->
-        <!--                android:autofillHints="" />-->
-
-        <!--        </androidx.cardview.widget.CardView>-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/search_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="60dp"
+                    android:padding="20dp"
+                    app:cardCornerRadius="@dimen/standard_corner_radius">
+                    <EditText
+                        android:id="@+id/search_et"
+                        android:layout_width="@dimen/standard_width"
+                        android:layout_height="@dimen/search_height"
+                        android:textColorHint="@color/dark_grey"
+                        android:background="@color/colorPrimary"
+                        android:hint="@string/search"
+                        android:paddingLeft="@dimen/grid_2x"
+                        android:paddingRight="@dimen/grid_2x"
+                        android:drawableEnd="@android:drawable/ic_menu_search"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"/>
+                </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.tabs.TabLayout
@@ -78,13 +69,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/standard_height"
         android:layout_marginBottom="@dimen/grid_2x"
-        android:backgroundTint="@color/twitter_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:tabIndicator="@null">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:icon="@drawable/selector_home" />
 
         <com.google.android.material.tabs.TabItem
@@ -106,7 +97,6 @@
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:backgroundTint="@color/twitter_dark"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         app:layout_constraintBottom_toTopOf="@+id/tabs"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,67 +117,6 @@
         app:srcCompat="@drawable/feather"
         android:contentDescription="@string/send_tweet">
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/grid_2x"
-        android:backgroundTint="@color/twitter_dark"
-        android:orientation="horizontal"
-        app:cardElevation="4dp"
-        app:contentPadding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:contentDescription="@string/tweet_number_1"
-            android:src="@drawable/tweet1">
-        </ImageView>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/grid_2x"
-        android:backgroundTint="@color/twitter_dark"
-        android:orientation="horizontal"
-        app:cardElevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:contentDescription="@string/tweet_number_two"
-            android:src="@drawable/tweet2">
-        </ImageView>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/grid_2x"
-        android:backgroundTint="@color/twitter_dark"
-        android:orientation="horizontal"
-        app:cardElevation="4dp"
-        app:contentPadding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:contentDescription="@string/tweet_number_3"
-            android:src="@drawable/tweet3">
-        </ImageView>
-    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
