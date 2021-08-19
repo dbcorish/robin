@@ -9,12 +9,13 @@ android {
     }
 
     compileSdk 31
+
     defaultConfig {
         applicationId "com.dbcorish.robin"
         minSdk 21
         targetSdk 31
-        versionCode 4
-        versionName "0.2.5"
+        versionCode 5
+        versionName "0.2.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
