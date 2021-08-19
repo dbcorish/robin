@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -40,6 +42,15 @@ class LoginFragment : Fragment() {
         setTextChangeListener(binding.passwordEditText, binding.passwordTextInputLayout)
 
         binding.passwordEditText.onDone { onLogin(v) }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            }
+        )
     }
 
     private fun onLogin(v: View) {
