@@ -5,21 +5,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dbcorish.robin.R
-import com.dbcorish.robin.databinding.ActivityHomeBinding
+import com.dbcorish.robin.databinding.ActivityMainBinding
 import com.dbcorish.robin.fragments.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 
-private const val NUM_PAGES = 4
-
 class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ActivityMainBinding
 
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val viewPager = binding.viewPager
