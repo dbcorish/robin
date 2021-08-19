@@ -12,19 +12,19 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import com.dbcorish.robin.databinding.LoginFragmentBinding
+import com.dbcorish.robin.databinding.FragmentLoginBinding
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
-    private lateinit var binding: LoginFragmentBinding
+    private lateinit var binding: FragmentLoginBinding
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = LoginFragmentBinding.inflate(layoutInflater)
+    ): View {
+        binding = FragmentLoginBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -100,7 +100,6 @@ class LoginFragment : Fragment() {
         setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 callback.invoke()
-                true
             }
             false
         }

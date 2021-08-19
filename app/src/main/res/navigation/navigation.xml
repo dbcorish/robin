@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.dbcorish.robin.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/login_fragment" >
+        tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/navigateToCreateAccountFragment"
             app:destination="@id/createAccountFragment"
@@ -20,7 +20,7 @@
         android:id="@+id/createAccountFragment"
         android:name="com.dbcorish.robin.CreateAccountFragment"
         android:label="fragment_create_account"
-        tools:layout="@layout/create_account_fragment" >
+        tools:layout="@layout/fragment_create_account" >
         <action
             android:id="@+id/navigateToLoginFragment"
             app:destination="@id/loginFragment"
@@ -29,4 +29,9 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dbcorish.robin.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

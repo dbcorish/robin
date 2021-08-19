@@ -7,4 +7,3 @@ data class User(
     val followHashtags: ArrayList<String>? = arrayListOf(),
     val followUsers: ArrayList<String>? = arrayListOf()
 )
-//}

@@ -1,11 +1,9 @@
-package com.dbcorish.robin.fragments
+package com.dbcorish.robin
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dbcorish.robin.R
 
 class HomeFragment : RobinFragment() {
     override fun onCreateView(

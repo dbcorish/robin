@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.dbcorish.robin.databinding.CreateAccountFragmentBinding
+import com.dbcorish.robin.databinding.FragmentCreateAccountBinding
 import com.dbcorish.robin.util.User
 import com.dbcorish.robin.util.users
 import com.google.android.material.textfield.TextInputLayout
@@ -20,15 +20,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class CreateAccountFragment : Fragment() {
 
-    private lateinit var binding: CreateAccountFragmentBinding
+    private lateinit var binding: FragmentCreateAccountBinding
     private val firebaseDB = FirebaseFirestore.getInstance()
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = CreateAccountFragmentBinding.inflate(layoutInflater)
+    ): View {
+        binding = FragmentCreateAccountBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -77,9 +77,9 @@ class CreateAccountFragment : Fragment() {
                         val user = User(email, username, "", arrayListOf(), arrayListOf())
                         firebaseDB.collection(users)
                             .document(firebaseAuth.uid ?: return@addOnCompleteListener).set(user)
+                        binding.createAccountProgressLayout.visibility = View.GONE
                         v.findNavController().navigate(R.id.navigateToLoginFragment)
                     }
-                    binding.createAccountProgressLayout.visibility = View.GONE
                 }
                 .addOnFailureListener { e ->
                     e.printStackTrace()
@@ -107,7 +107,6 @@ class CreateAccountFragment : Fragment() {
         setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 callback.invoke()
-                true
             }
             false
         }

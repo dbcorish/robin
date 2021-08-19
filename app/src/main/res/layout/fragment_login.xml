@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccountFragment">
+    tools:context=".LoginFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -29,44 +29,23 @@
                 android:src="@drawable/title" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/createUsernameTextInputLayout"
+                android:id="@+id/emailTextInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageView"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/grid_2x"
-                app:boxCornerRadiusBottomEnd="10dp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:errorTextColor="@color/red_700">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createUsernameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_username"
-                    android:inputType="text">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/createEmailTextInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="@dimen/standard_width"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/createUsernameTextInputLayout"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
-                app:errorTextColor="@color/red_700">
+                app:errorTextColor="@color/red_700"
+                app:boxStrokeErrorColor="@color/red_700"
+                app:errorIconTint="@color/red_700">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createEmailEditText"
+                    android:id="@+id/emailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_email"
@@ -76,11 +55,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/createPasswordTextInputLayout"
+                android:id="@+id/passwordTextInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/createEmailTextInputLayout"
+                android:layout_below="@id/emailTextInputLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/grid_2x"
                 app:boxCornerRadiusBottomEnd="12dp"
@@ -88,10 +67,12 @@
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusTopStart="12dp"
                 app:endIconMode="password_toggle"
-                app:errorTextColor="@color/red_700">
+                app:errorTextColor="@color/red_700"
+                app:boxStrokeErrorColor="@color/red_700"
+                app:errorIconTint="@color/red_700">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createPasswordEditText"
+                    android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_password"
@@ -101,26 +82,42 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/createAccountButton"
+                android:id="@+id/loginButton"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="@dimen/standard_height"
-                android:layout_below="@id/createPasswordTextInputLayout"
+                android:layout_below="@id/passwordTextInputLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:elevation="2dp"
-                android:text="@string/button_create_account"
+                android:text="@string/button_login"
                 android:textSize="20sp"
                 app:cornerRadius="8dp">
             </com.google.android.material.button.MaterialButton>
+
+            <TextView
+                android:id="@+id/createAccountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/grid_2x"
+                android:layout_marginTop="@dimen/grid_2x"
+                android:layout_marginEnd="@dimen/grid_2x"
+                android:layout_marginBottom="@dimen/grid_2x"
+                android:clickable="true"
+                android:focusable="true"
+                android:minHeight="48dp"
+                android:text="@string/button_create_account"
+                android:textSize="16sp" />
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
-        android:id="@+id/createAccountProgressLayout"
+        android:id="@+id/loginProgressLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent_grey"
+        style="@style/VerticalThemeLayoutInputs"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
@@ -130,5 +127,6 @@
             android:layout_height="wrap_content"
             android:indeterminate="true" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
