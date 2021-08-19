@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SignUpActivity">
+    tools:context=".CreateAccountFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:elevation="2dp"
-                android:text="@string/button_signup"
+                android:text="@string/button_create_account"
                 android:textSize="20sp"
                 app:cornerRadius="8dp">
             </com.google.android.material.button.MaterialButton>
@@ -117,16 +117,17 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
-        android:id="@+id/signUpProgressLayout"
+        android:id="@+id/createAccountProgressLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
