@@ -60,12 +60,13 @@
                         android:paddingRight="@dimen/grid_2x"
                         android:drawableEnd="@android:drawable/ic_menu_search"
                         android:imeOptions="actionSearch"
-                        android:inputType="text"/>
+                        android:inputType="text"
+                        android:autofillHints="" />
                 </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/standard_height"
         android:layout_marginBottom="@dimen/grid_2x"
@@ -95,10 +96,10 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        app:layout_constraintBottom_toTopOf="@+id/tabs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
@@ -112,7 +113,7 @@
         android:backgroundTint="@color/red_500"
         android:elevation="6dp"
         app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabs"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/feather"
         android:contentDescription="@string/send_tweet">
