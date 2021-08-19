@@ -15,6 +15,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dbcorish.robin.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
+import android.view.MotionEvent
+import android.view.View.OnTouchListener
+
 
 class MainFragment : Fragment() {
 
@@ -32,6 +35,7 @@ class MainFragment : Fragment() {
         val iMm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         iMm.hideSoftInputFromWindow(v.windowToken, 0)
         v.clearFocus()
+
         val user = FirebaseAuth.getInstance().currentUser
         if (user == null) {
             Navigation.findNavController(v).navigate(R.id.navigateFromMainToLogin)
