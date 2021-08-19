@@ -21,6 +21,6 @@
         <item name="cardBackgroundColor">@color/white</item>
     </style>
     <style name="VerticalThemeLayoutInputs">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/transparent_grey</item>
     </style>
 </resources>
