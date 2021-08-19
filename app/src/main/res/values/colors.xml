@@ -13,6 +13,7 @@
     <color name="transparent_grey">#99CCCCCC</color>
 
     <color name="twitter_dark">#16202b</color>
+    <color name="material_dark">#131312</color>
 
     <color name="white">#FFFFFFFF</color>
 </resources>

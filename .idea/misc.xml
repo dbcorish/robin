@@ -12,12 +12,12 @@
         <entry key="..\:/Users/David/AndroidStudioProjects/Robin/app/src/main/res/layout/activity_main.xml" value="0.389945652173913" />
         <entry key="..\:/Users/David/AndroidStudioProjects/Robin/app/src/main/res/layout/activity_signup.xml" value="0.328125" />
         <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/drawable/selector_home.xml" value="0.14322916666666666" />
-        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/activity_login.xml" value="0.17300724637681159" />
-        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/activity_signup.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/activity_login.xml" value="0.136" />
+        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/activity_signup.xml" value="0.176" />
         <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/fragment_activity.xml" value="0.12708333333333333" />
-        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/fragment_messages.xml" value="0.25" />
+        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/fragment_home.xml" value="0.144" />
+        <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/fragment_messages.xml" value="0.1" />
         <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Users/David/AndroidStudioProjects/robin/app/src/main/res/layout/item_view_pager.xml" value="0.25" />
         <entry key="..\:/Users/David/Downloads/Robin/app/src/main/res/drawable/selector_home.xml" value="0.26614583333333336" />

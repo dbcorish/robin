@@ -36,7 +36,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageView"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x">
+                android:layout_margin="@dimen/grid_2x"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopStart="12dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/usernameET"
                     android:layout_width="match_parent"
@@ -55,7 +59,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/usernameTIL"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x">
+                android:layout_margin="@dimen/grid_2x"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopStart="12dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailET"
                     android:layout_width="match_parent"
@@ -74,7 +82,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/emailTIL"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x">
+                android:layout_margin="@dimen/grid_2x"
+                app:endIconMode="password_toggle"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopStart="12dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordET"
                     android:layout_width="match_parent"
@@ -85,17 +98,18 @@
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSignUp"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="@dimen/standard_height"
-                android:layout_marginTop="10dp"
                 android:layout_below="@id/passwordTIL"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:elevation="2dp"
                 android:text="@string/button_signup"
                 android:textSize="20sp"
-                android:elevation="2dp"
-                />
+                app:cornerRadius="8dp">
+            </com.google.android.material.button.MaterialButton>
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

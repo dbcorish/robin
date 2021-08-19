@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding.passwordET.onDone { onLogin() }
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener { onLogin() }
@@ -89,6 +91,16 @@ class LoginActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    fun EditText.onDone(callback: () -> Unit) {
+        setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                callback.invoke()
+                true
+            }
+            false
+        }
     }
 
     companion object {
