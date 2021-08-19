@@ -1,41 +1,49 @@
-package com.dbcorish.robin.activities
+package com.dbcorish.robin
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.dbcorish.robin.databinding.ActivityLoginBinding
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import com.dbcorish.robin.databinding.LoginFragmentBinding
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 
+class LoginFragment : Fragment() {
+    private lateinit var binding: LoginFragmentBinding
 
-class LoginActivity : AppCompatActivity() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = LoginFragmentBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-    private lateinit var binding: ActivityLoginBinding
-
-    private val firebaseAuth = FirebaseAuth.getInstance()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        binding.passwordET.onDone { onLogin() }
-        setContentView(binding.root)
-
-        binding.buttonLogin.setOnClickListener { onLogin() }
-        binding.signupTV.setOnClickListener { goToSignup() }
+    override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
+        binding.buttonLogin.setOnClickListener {
+            onLogin(v)
+        }
+        binding.signupTV.setOnClickListener {
+            Navigation.findNavController(v).navigate(R.id.navigateToCreateAccountFragment)
+        }
 
         setTextChangeListener(binding.emailET, binding.emailTIL)
         setTextChangeListener(binding.passwordET, binding.passwordTIL)
+
+        binding.passwordET.onDone { onLogin(v)}
     }
 
-    private fun onLogin() {
+    private val firebaseAuth = FirebaseAuth.getInstance()
+
+    private fun onLogin(v: View) {
         var check = true
         if (binding.emailET.text.isNullOrEmpty()) {
             binding.emailTIL.error = "Email is required"
@@ -57,14 +65,14 @@ class LoginActivity : AppCompatActivity() {
                     if (!task.isSuccessful) {
                         binding.loginProgressLayout.visibility = View.GONE
                         Toast.makeText(
-                            this@LoginActivity,
+                            this@LoginFragment.requireActivity(),
                             "Login error: ${task.exception?.localizedMessage}",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                     if (task.isSuccessful) {
                         binding.loginProgressLayout.visibility = View.GONE
-                        startActivity(MainActivity_Old.newIntent(this))
+                        v.findNavController().navigate(R.id.navigateToCreateAccountFragment)
                     }
                 }
                 .addOnFailureListener { e ->
@@ -72,10 +80,6 @@ class LoginActivity : AppCompatActivity() {
                     binding.loginProgressLayout.visibility = View.GONE
                 }
         }
-    }
-
-    private fun goToSignup() {
-        startActivity(SignUpActivity.newIntent(this))
     }
 
     private fun setTextChangeListener(et: EditText, til: TextInputLayout) {

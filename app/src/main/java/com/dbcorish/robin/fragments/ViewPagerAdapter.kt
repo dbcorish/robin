@@ -18,7 +18,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         return when (position) {
             0 -> HomeFragment()
             1 -> SearchFragment()
-            2 -> ActivityFragment()
+            2 -> NotificationsFragment()
             else -> MessagesFragment()
         }
     }

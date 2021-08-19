@@ -6,18 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dbcorish.robin.R
 import com.dbcorish.robin.databinding.ActivityMainBinding
+import com.dbcorish.robin.databinding.ActivityMainOldBinding
 import com.dbcorish.robin.fragments.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class MainActivity_Old : AppCompatActivity() {
+    private lateinit var binding: ActivityMainOldBinding
 
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainOldBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val viewPager = binding.viewPager
@@ -36,13 +37,13 @@ class MainActivity : AppCompatActivity() {
         }.attach()
     }
 
-    fun onLogout() {
-        firebaseAuth.signOut()
-        startActivity(LoginActivity.newIntent(this))
-        finish()
-    }
+//    fun onLogout() {
+//        firebaseAuth.signOut()
+//        startActivity(LoginActivity.newIntent(this))
+//        finish()
+//    }
 
     companion object {
-        fun newIntent(context: Context) = Intent(context, MainActivity::class.java)
+        fun newIntent(context: Context) = Intent(context, MainActivity_Old::class.java)
     }
 }
