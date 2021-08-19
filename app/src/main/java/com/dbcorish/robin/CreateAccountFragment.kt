@@ -33,15 +33,17 @@ class CreateAccountFragment : Fragment() {
     }
 
     override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
-        binding.createAccountButton.setOnClickListener { onSignup(v) }
-        binding.createPasswordEditText.onDone { onSignup(v) }
+        binding.createAccountButton.setOnClickListener { onCreateAccount(v) }
+        binding.createPasswordEditText.onDone { onCreateAccount(v) }
 
         setTextChangeListener(binding.createUsernameEditText, binding.createUsernameTextInputLayout)
         setTextChangeListener(binding.createEmailEditText, binding.createEmailTextInputLayout)
         setTextChangeListener(binding.createPasswordEditText, binding.createPasswordTextInputLayout)
+
+        binding.createPasswordEditText.onDone { onCreateAccount(v)}
     }
 
-    private fun onSignup(v: View) {
+    private fun onCreateAccount(v: View) {
         var check = true
         if (binding.createUsernameEditText.text.isNullOrEmpty()) {
             binding.createUsernameTextInputLayout.error = "Username is required"
@@ -78,7 +80,7 @@ class CreateAccountFragment : Fragment() {
                         firebaseDB.collection(users)
                             .document(firebaseAuth.uid ?: return@addOnCompleteListener).set(user)
                         binding.createAccountProgressLayout.visibility = View.GONE
-                        v.findNavController().navigate(R.id.navigateToLoginFragment)
+                        v.findNavController().navigate(R.id.navigateFromCreateAccountToMain)
                     }
                 }
                 .addOnFailureListener { e ->

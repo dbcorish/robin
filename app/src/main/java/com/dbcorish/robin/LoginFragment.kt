@@ -32,8 +32,8 @@ class LoginFragment : Fragment() {
         binding.loginButton.setOnClickListener {
             onLogin(v)
         }
-        binding.createAccountTextView.setOnClickListener {
-            Navigation.findNavController(v).navigate(R.id.navigateToCreateAccountFragment)
+        binding.createAccountButton.setOnClickListener {
+            Navigation.findNavController(v).navigate(R.id.navigateFromLoginToCreateAccount)
         }
 
         setTextChangeListener(binding.emailEditText, binding.emailTextInputLayout)
@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
                     }
                     if (task.isSuccessful) {
                         binding.loginProgressLayout.visibility = View.GONE
-                        v.findNavController().navigate(R.id.navigateToCreateAccountFragment)
+                        v.findNavController().navigate(R.id.navigateFromLoginToMain)
                     }
                 }
                 .addOnFailureListener { e ->

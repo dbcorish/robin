@@ -23,7 +23,7 @@
                 android:layout_marginStart="@dimen/grid_2x"
                 android:layout_marginTop="@dimen/grid_3x"
                 android:layout_marginEnd="@dimen/grid_2x"
-                android:layout_marginBottom="@dimen/grid_2x"
+                android:layout_marginBottom="10dp"
                 android:contentDescription="@string/robin_logo"
                 android:padding="20dp"
                 android:src="@drawable/title" />
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageView"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x"
+                android:layout_margin="10dp"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/createUsernameTextInputLayout"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x"
+                android:layout_margin="10dp"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/createEmailTextInputLayout"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x"
+                android:layout_margin="8dp"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
@@ -108,14 +108,14 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/createAccountButton"
-                android:layout_width="@dimen/standard_width"
-                android:layout_height="@dimen/standard_height"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/createPasswordTextInputLayout"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="7dp"
                 android:elevation="2dp"
-                android:text="@string/button_create_account"
-                android:textSize="20sp"
+                android:backgroundTint="@color/teal_200"
+                android:text="Create Account"
                 app:cornerRadius="8dp">
             </com.google.android.material.button.MaterialButton>
 

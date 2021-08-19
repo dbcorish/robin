@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     tools:context=".HomeFragment">
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutButton"
+        android:layout_width="@dimen/standard_width"
+        android:layout_height="@dimen/standard_height"
+        android:gravity="center"
+        android:text="Sign-Out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.material.button.MaterialButton>
+
+    <LinearLayout
+        android:id="@+id/signOutProgressLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/transparent_grey"
+        android:elevation="5dp"
         android:gravity="center"
-        android:textSize="90sp"
-        android:text="Home"/>
+        android:orientation="vertical"
+        android:visibility="gone">
+    </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
