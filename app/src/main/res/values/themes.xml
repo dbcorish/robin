@@ -20,4 +20,7 @@
     <style name="TabLayout" parent="Widget.MaterialComponents.TabLayout">
         <item name="cardBackgroundColor">@color/white</item>
     </style>
+    <style name="VerticalThemeLayoutInputs">
+        <item name="android:background">@color/white</item>
+    </style>
 </resources>

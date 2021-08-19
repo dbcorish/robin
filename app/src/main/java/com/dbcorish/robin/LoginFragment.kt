@@ -32,7 +32,7 @@ class LoginFragment : Fragment() {
         binding.loginButton.setOnClickListener {
             onLogin(v)
         }
-        binding.signupTV.setOnClickListener {
+        binding.createAccountTextView.setOnClickListener {
             Navigation.findNavController(v).navigate(R.id.navigateToCreateAccountFragment)
         }
 

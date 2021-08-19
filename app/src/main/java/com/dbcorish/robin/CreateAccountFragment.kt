@@ -11,7 +11,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.dbcorish.robin.activities.MainActivity_Old
 import com.dbcorish.robin.databinding.CreateAccountFragmentBinding
 import com.dbcorish.robin.util.User
 import com.dbcorish.robin.util.users
@@ -60,9 +59,12 @@ class CreateAccountFragment : Fragment() {
             check = false
         }
         if (check) {
-            binding.signUpProgressLayout.visibility = View.VISIBLE
+            binding.createAccountProgressLayout.visibility = View.VISIBLE
             val email = binding.createEmailEditText.text.toString()
-            firebaseAuth.createUserWithEmailAndPassword(email, binding.createPasswordEditText.text.toString())
+            firebaseAuth.createUserWithEmailAndPassword(
+                email,
+                binding.createPasswordEditText.text.toString()
+            )
                 .addOnCompleteListener { task ->
                     if (!task.isSuccessful) {
                         Toast.makeText(
@@ -73,14 +75,15 @@ class CreateAccountFragment : Fragment() {
                     } else {
                         val username = binding.createUsernameEditText.text.toString()
                         val user = User(email, username, "", arrayListOf(), arrayListOf())
-                        firebaseDB.collection(users).document(firebaseAuth.uid!!).set(user)
+                        firebaseDB.collection(users)
+                            .document(firebaseAuth.uid ?: return@addOnCompleteListener).set(user)
                         v.findNavController().navigate(R.id.navigateToLoginFragment)
                     }
-                    binding.signUpProgressLayout.visibility = View.GONE
+                    binding.createAccountProgressLayout.visibility = View.GONE
                 }
                 .addOnFailureListener { e ->
                     e.printStackTrace()
-                    binding.signUpProgressLayout.visibility = View.GONE
+                    binding.createAccountProgressLayout.visibility = View.GONE
                 }
         }
     }
