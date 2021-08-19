@@ -39,7 +39,7 @@ class LoginFragment : Fragment() {
         setTextChangeListener(binding.emailEditText, binding.emailTextInputLayout)
         setTextChangeListener(binding.passwordEditText, binding.passwordTextInputLayout)
 
-        binding.passwordEditText.onDone { onLogin(v)}
+        binding.passwordEditText.onDone { onLogin(v) }
     }
 
     private fun onLogin(v: View) {
@@ -96,7 +96,7 @@ class LoginFragment : Fragment() {
         })
     }
 
-    fun EditText.onDone(callback: () -> Unit) {
+    private fun EditText.onDone(callback: () -> Unit) {
         setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 callback.invoke()

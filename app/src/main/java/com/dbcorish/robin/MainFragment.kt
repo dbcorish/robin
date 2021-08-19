@@ -1,7 +1,6 @@
 package com.dbcorish.robin
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +14,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dbcorish.robin.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
-import android.view.MotionEvent
-import android.view.View.OnTouchListener
 
 
 class MainFragment : Fragment() {
@@ -60,10 +57,10 @@ class MainFragment : Fragment() {
     private class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         FragmentStateAdapter(fragmentManager, lifecycle) {
 
-        private val NUM_TABS = 4
+        private val tabs = 4
 
         override fun getItemCount(): Int {
-            return NUM_TABS
+            return tabs
         }
 
         override fun createFragment(position: Int): Fragment {

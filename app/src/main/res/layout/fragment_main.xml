@@ -12,8 +12,8 @@
         style="@style/CardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:elevation="4dp"
+        android:orientation="horizontal"
         app:contentPadding="10dp"
         app:layout_constraintBottom_toTopOf="@id/viewPager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,11 +62,11 @@
                 android:id="@+id/search_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/search"
                 android:drawableEnd="@android:drawable/ic_menu_search"
+                android:hint="@string/search"
                 android:imeOptions="actionSearch"
-                android:padding="2dp"
                 android:inputType="text"
+                android:padding="2dp"
                 android:textColorHint="#616161">
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>

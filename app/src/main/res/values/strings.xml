@@ -19,6 +19,8 @@
     <string name="tweet_number_two">Tweet number two</string>
     <string name="tweet_number_3">Tweet number 3</string>
     <string name="search">Search</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notifications">Notifications</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_out">Sign-Out</string>
+    <string name="messages">Messages</string>
 </resources>

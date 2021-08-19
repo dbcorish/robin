@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textSize="80sp"
-        android:text="Messages"/>
+        android:text="@string/messages"
+        android:textSize="80sp" />
 
 </FrameLayout>

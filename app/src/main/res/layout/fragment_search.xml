@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textSize="90sp"
-        android:text="Search"/>
+        android:text="@string/search"
+        android:textSize="90sp" />
 
 </FrameLayout>

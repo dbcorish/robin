@@ -40,7 +40,7 @@ class CreateAccountFragment : Fragment() {
         setTextChangeListener(binding.createEmailEditText, binding.createEmailTextInputLayout)
         setTextChangeListener(binding.createPasswordEditText, binding.createPasswordTextInputLayout)
 
-        binding.createPasswordEditText.onDone { onCreateAccount(v)}
+        binding.createPasswordEditText.onDone { onCreateAccount(v) }
     }
 
     private fun onCreateAccount(v: View) {
@@ -105,7 +105,7 @@ class CreateAccountFragment : Fragment() {
         })
     }
 
-    fun EditText.onDone(callback: () -> Unit) {
+    private fun EditText.onDone(callback: () -> Unit) {
         setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 callback.invoke()

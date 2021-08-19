@@ -25,7 +25,7 @@ class HomeFragment : RobinFragment() {
         }
     }
 
-    fun onLogout(v: View) {
+    private fun onLogout(v: View) {
         binding.signOutProgressLayout.visibility = View.VISIBLE
         FirebaseAuth.getInstance().signOut()
         Navigation.findNavController(v).navigate(R.id.navigateFromMainToLogin)
