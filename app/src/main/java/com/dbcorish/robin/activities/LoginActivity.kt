@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                     if (task.isSuccessful) {
                         binding.loginProgressLayout.visibility = View.GONE
-                        startActivity(HomeActivity.newIntent(this))
+                        startActivity(MainActivity.newIntent(this))
                     }
                 }
                 .addOnFailureListener { e ->

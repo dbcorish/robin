@@ -10,7 +10,7 @@ import com.dbcorish.robin.fragments.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 
-class HomeActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val firebaseAuth = FirebaseAuth.getInstance()
@@ -43,6 +43,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context) = Intent(context, HomeActivity::class.java)
+        fun newIntent(context: Context) = Intent(context, MainActivity::class.java)
     }
 }

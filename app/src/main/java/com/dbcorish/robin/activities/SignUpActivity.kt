@@ -68,7 +68,7 @@ class SignUpActivity : AppCompatActivity() {
                         val username = binding.usernameET.text.toString()
                         val user = User(email, username, "", arrayListOf(), arrayListOf())
                         firebaseDB.collection(users).document(firebaseAuth.uid!!).set(user)
-                        startActivity(HomeActivity.newIntent(this))
+                        startActivity(MainActivity.newIntent(this))
                     }
                     binding.signUpProgressLayout.visibility = View.GONE
                 }
