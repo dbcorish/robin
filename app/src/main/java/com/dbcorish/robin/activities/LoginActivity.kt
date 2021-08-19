@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonLogin.setOnClickListener { onLogin() }
-        binding.signupTV.setOnClickListener { goToSignup() }
+       // binding.signupTV.setOnClickListener { goToSignup() }
 
         setTextChangeListener(binding.emailET, binding.emailTIL)
         setTextChangeListener(binding.passwordET, binding.passwordTIL)
@@ -74,9 +74,9 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun goToSignup() {
-        startActivity(SignUpActivity.newIntent(this))
-    }
+//    private fun goToSignup() {
+//        startActivity(SignUpActivity.newIntent(this))
+//    }
 
     private fun setTextChangeListener(et: EditText, til: TextInputLayout) {
         et.addTextChangedListener(object : TextWatcher {

@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorHint">@color/secondary_text</item>
     </style>
     <style name="CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/material_dark</item>

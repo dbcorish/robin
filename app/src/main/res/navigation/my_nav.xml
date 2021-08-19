@@ -17,7 +17,7 @@
         android:id="@+id/createAccountFragment"
         android:name="com.dbcorish.robin.CreateAccountFragment"
         android:label="fragment_create_account"
-        tools:layout="@layout/fragment_create_account" >
+        tools:layout="@layout/create_account_fragment" >
         <action
             android:id="@+id/navigateToLoginFragment"
             app:destination="@id/loginFragment" />

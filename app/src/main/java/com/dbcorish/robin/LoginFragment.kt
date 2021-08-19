@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
     private lateinit var binding: LoginFragmentBinding
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,38 +29,36 @@ class LoginFragment : Fragment() {
     }
 
     override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
-        binding.buttonLogin.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             onLogin(v)
         }
         binding.signupTV.setOnClickListener {
             Navigation.findNavController(v).navigate(R.id.navigateToCreateAccountFragment)
         }
 
-        setTextChangeListener(binding.emailET, binding.emailTIL)
-        setTextChangeListener(binding.passwordET, binding.passwordTIL)
+        setTextChangeListener(binding.emailEditText, binding.emailTextInputLayout)
+        setTextChangeListener(binding.passwordEditText, binding.passwordTextInputLayout)
 
-        binding.passwordET.onDone { onLogin(v)}
+        binding.passwordEditText.onDone { onLogin(v)}
     }
-
-    private val firebaseAuth = FirebaseAuth.getInstance()
 
     private fun onLogin(v: View) {
         var check = true
-        if (binding.emailET.text.isNullOrEmpty()) {
-            binding.emailTIL.error = "Email is required"
-            binding.emailTIL.isErrorEnabled = true
+        if (binding.emailEditText.text.isNullOrEmpty()) {
+            binding.emailTextInputLayout.error = "Email is required"
+            binding.emailTextInputLayout.isErrorEnabled = true
             check = false
         }
-        if (binding.passwordET.text.isNullOrEmpty()) {
-            binding.passwordTIL.error = "Password is required"
-            binding.passwordTIL.isErrorEnabled = true
+        if (binding.passwordEditText.text.isNullOrEmpty()) {
+            binding.passwordTextInputLayout.error = "Password is required"
+            binding.passwordTextInputLayout.isErrorEnabled = true
             check = false
         }
         if (check) {
             binding.loginProgressLayout.visibility = View.VISIBLE
             firebaseAuth.signInWithEmailAndPassword(
-                binding.emailET.text.toString(),
-                binding.passwordET.text.toString()
+                binding.emailEditText.text.toString(),
+                binding.passwordEditText.text.toString()
             )
                 .addOnCompleteListener { task ->
                     if (!task.isSuccessful) {

@@ -103,8 +103,4 @@ class SignUpActivity : AppCompatActivity() {
             false
         }
     }
-
-    companion object {
-        fun newIntent(context: Context) = Intent(context, SignUpActivity::class.java)
-    }
 }
