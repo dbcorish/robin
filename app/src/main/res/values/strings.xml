@@ -4,6 +4,8 @@
 
     <string name="button_login">Login</string>
     <string name="button_create_account">Create account</string>
+    <string name="button_apply">Apply</string>
+    <string name="button_sign_out">Sign out</string>
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -23,5 +25,6 @@
     <string name="create_account">Create Account</string>
     <string name="sign_out">Sign-Out</string>
     <string name="messages">Messages</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
 </resources>

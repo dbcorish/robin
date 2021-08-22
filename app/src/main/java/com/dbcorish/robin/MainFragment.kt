@@ -54,7 +54,7 @@ class MainFragment : Fragment() {
         }
 
         binding.profile.setOnClickListener {
-            Navigation.findNavController(v).navigate(R.id.navigateFromLoginToCreateAccount)
+            Navigation.findNavController(v).navigate(R.id.navigateFromMainToProfile)
         }
     }
 

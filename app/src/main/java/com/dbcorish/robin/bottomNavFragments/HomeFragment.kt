@@ -18,15 +18,4 @@ class HomeFragment : RobinFragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
-
-    override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
-        binding.logoutButton.setOnClickListener {
-            onLogout(v)
-        }
-    }
-
-    private fun onLogout(v: View) {
-        FirebaseAuth.getInstance().signOut()
-        Navigation.findNavController(v).navigate(R.id.navigateFromMainToLogin)
-    }
 }
