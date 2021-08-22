@@ -52,6 +52,10 @@ class MainFragment : Fragment() {
                 }
             }.attach()
         }
+
+        binding.profile.setOnClickListener {
+            Navigation.findNavController(v).navigate(R.id.navigateFromLoginToCreateAccount)
+        }
     }
 
     private class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :

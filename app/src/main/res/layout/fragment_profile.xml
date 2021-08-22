@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MessagesFragment">
+    tools:context=".ProfileFragment">
 
     <TextView
-        android:id="@+id/messages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/messages"
-        android:textSize="80sp" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

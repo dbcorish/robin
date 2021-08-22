@@ -10,6 +10,6 @@ class NotificationsFragment : RobinFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_activity, container, false)
+        return inflater.inflate(R.layout.fragment_notifications, container, false)
     }
 }
