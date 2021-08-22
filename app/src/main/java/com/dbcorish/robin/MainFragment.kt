@@ -33,14 +33,14 @@ class MainFragment : Fragment() {
         iMm.hideSoftInputFromWindow(v.windowToken, 0)
         v.clearFocus()
 
-        val user = FirebaseAuth.getInstance().currentUser
+        val user = FirebaseAuth.getInstance().currentUser?.uid
         if (user == null) {
             Navigation.findNavController(v).navigate(R.id.navigateFromMainToLogin)
         } else {
             val viewPager = binding.viewPager
             val tabLayout = binding.tabLayout
 
-            val adapter = activity?.let { ViewPagerAdapter(it.supportFragmentManager, lifecycle) }
+            val adapter = activity?.let { ViewPagerAdapter(childFragmentManager, lifecycle) }
             viewPager.adapter = adapter
 
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
