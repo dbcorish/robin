@@ -19,14 +19,21 @@
             android:layout_marginBottom="@dimen/grid_3x"
             android:gravity="center_horizontal">
 
-            <ImageView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/profilePhoto"
-                android:layout_width="@dimen/standard_width"
-                android:layout_height="@dimen/standard_width"
-                android:layout_marginBottom="@dimen/grid_2x"
-                android:src="@drawable/default_user"
-                android:contentDescription="@string/user_profile_picture">
-            </ImageView>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/standard_corner_radius">
+
+                <ImageView
+                    android:id="@+id/profilePhotoImage"
+                    android:layout_width="@dimen/standard_width"
+                    android:layout_height="@dimen/standard_width"
+                    android:contentDescription="@string/user_profile_picture"
+                    android:src="@drawable/default_user">
+                </ImageView>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/userTextInputLayout"
@@ -34,6 +41,7 @@
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/profilePhoto"
+                android:layout_marginTop="@dimen/grid_3x"
                 android:paddingBottom="@dimen/grid_2x"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
@@ -66,10 +74,8 @@
                     android:id="@+id/emailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email">
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:hint="@string/email"></com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <com.google.android.material.button.MaterialButton
@@ -77,9 +83,9 @@
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="@dimen/standard_height"
                 android:layout_below="@id/emailTextInputLayout"
-                android:text="@string/button_apply"
                 android:backgroundTint="@color/teal_200"
                 android:elevation="2dp"
+                android:text="@string/button_apply"
                 app:cornerRadius="8dp">
 
             </com.google.android.material.button.MaterialButton>

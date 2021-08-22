@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.dbcorish.robin.LoginFragment"
@@ -18,8 +18,8 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/navigateFromLoginToMain"
-            app:destination="@id/mainFragment"
+            android:id="@+id/navigateFromLoginToHome"
+            app:destination="@id/homeFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -42,8 +42,8 @@
             app:popUpTo="@id/navigation"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/navigateFromCreateAccountToMain"
-            app:destination="@id/mainFragment"
+            android:id="@+id/navigateFromCreateAccountToHome"
+            app:destination="@id/homeFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -52,12 +52,12 @@
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.dbcorish.robin.MainFragment"
+        android:id="@+id/homeFragment"
+        android:name="com.dbcorish.robin.HomeFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/navigateFromMainToLogin"
+            android:id="@+id/navigateFromHomeToLogin"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
@@ -66,7 +66,7 @@
             app:popUpTo="@id/navigation"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/navigateFromMainToProfile"
+            android:id="@+id/navigateFromHomeToProfile"
             app:destination="@id/profileFragment" />
     </fragment>
     <fragment

@@ -81,7 +81,7 @@ class LoginFragment : Fragment() {
                     }
                     if (task.isSuccessful) {
                         binding.loginProgressLayout.visibility = View.GONE
-                        v.findNavController().navigate(R.id.navigateFromLoginToMain)
+                        v.findNavController().navigate(R.id.navigateFromLoginToHome)
                     }
                 }
                 .addOnFailureListener { e ->

@@ -11,20 +11,20 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.dbcorish.robin.databinding.FragmentMainBinding
+import com.dbcorish.robin.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(layoutInflater)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -35,7 +35,7 @@ class MainFragment : Fragment() {
 
         val user = FirebaseAuth.getInstance().currentUser?.uid
         if (user == null) {
-            Navigation.findNavController(v).navigate(R.id.navigateFromMainToLogin)
+            Navigation.findNavController(v).navigate(R.id.navigateFromHomeToLogin)
         } else {
             val viewPager = binding.viewPager
             val tabLayout = binding.tabLayout
@@ -54,7 +54,7 @@ class MainFragment : Fragment() {
         }
 
         binding.profile.setOnClickListener {
-            Navigation.findNavController(v).navigate(R.id.navigateFromMainToProfile)
+            Navigation.findNavController(v).navigate(R.id.navigateFromHomeToProfile)
         }
     }
 
@@ -69,7 +69,7 @@ class MainFragment : Fragment() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> HomeFragment()
+                0 -> NewsFragment()
                 1 -> SearchFragment()
                 2 -> NotificationsFragment()
                 else -> MessagesFragment()

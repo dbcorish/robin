@@ -80,7 +80,7 @@ class CreateAccountFragment : Fragment() {
                         firebaseDB.collection(users)
                             .document(firebaseAuth.uid ?: return@addOnCompleteListener).set(user)
                         binding.createAccountProgressLayout.visibility = View.GONE
-                        v.findNavController().navigate(R.id.navigateFromCreateAccountToMain)
+                        v.findNavController().navigate(R.id.navigateFromCreateAccountToHome)
                     }
                 }
                 .addOnFailureListener { e ->
