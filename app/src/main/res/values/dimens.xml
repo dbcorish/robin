@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
+
+    <dimen name="grid_1x">4dp</dimen>
     <dimen name="grid_2x">8dp</dimen>
     <dimen name="grid_3x">16dp</dimen>
 
