@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".LoginFragment">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -43,15 +44,13 @@
                 app:boxStrokeErrorColor="@color/red_700"
                 app:errorIconTint="@color/red_700"
                 app:errorTextColor="@color/red_700">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_email"
+                    android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:textColorHint="#757575">
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:textColorHint="#757575" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -70,15 +69,14 @@
                 app:endIconMode="password_toggle"
                 app:errorIconTint="@color/red_700"
                 app:errorTextColor="@color/red_700">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_password"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
-                    android:textColorHint="#757575">
-                </com.google.android.material.textfield.TextInputEditText>
+                    android:textColorHint="#757575" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -91,8 +89,7 @@
                 android:elevation="2dp"
                 android:text="@string/button_login"
                 android:textSize="20sp"
-                app:cornerRadius="8dp">
-            </com.google.android.material.button.MaterialButton>
+                app:cornerRadius="8dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/createAccountButton"
@@ -104,27 +101,23 @@
                 android:backgroundTint="@color/teal_200"
                 android:elevation="2dp"
                 android:text="@string/create_account"
-                app:cornerRadius="8dp">
-            </com.google.android.material.button.MaterialButton>
+                app:cornerRadius="8dp" />
 
         </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:id="@+id/loginProgressLayout"
-        style="@style/VerticalThemeLayoutInputs"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/transparent_grey"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true" />
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/loginProgressLayout"
+            style="@style/VerticalThemeLayoutInputs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent_grey"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

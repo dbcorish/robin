@@ -92,7 +92,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun setTextChangeListener(et: EditText, til: TextInputLayout) {
+    private fun setTextChangeListener(et: EditText, til: TextInputLayout) {
         et.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }

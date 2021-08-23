@@ -12,6 +12,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dbcorish.robin.databinding.FragmentHomeBinding
+import com.dbcorish.robin.homeFragments.MessagesFragment
+import com.dbcorish.robin.homeFragments.NewsFragment
+import com.dbcorish.robin.homeFragments.NotificationsFragment
+import com.dbcorish.robin.homeFragments.SearchFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 
@@ -29,8 +33,8 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
-        val iMm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        iMm.hideSoftInputFromWindow(v.windowToken, 0)
+        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(v.windowToken, 0)
         v.clearFocus()
 
         val user = FirebaseAuth.getInstance().currentUser?.uid

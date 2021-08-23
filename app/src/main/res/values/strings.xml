@@ -3,34 +3,24 @@
     <string name="app_name">Robin</string>
 
     <string name="button_login">Login</string>
-    <string name="button_create_account">Create account</string>
     <string name="button_update_email">Update Email</string>
     <string name="button_update_username">Update Username</string>
     <string name="button_sign_out">Sign out</string>
-    <string name="button_confirm_password">Confirm Password</string>
 
-    <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
-    <string name="hint_username">Username</string>
 
     <string name="robin_logo">Robin Logo</string>
 
-    <string name="text_signup">Create an account</string>
-    <string name="robin_logo_at_top_of_screen">Robin logo at top of screen</string>
     <string name="user_profile_picture">User profile picture</string>
     <string name="send_tweet">Send tweet</string>
-    <string name="tweet_number_1">Tweet number 1</string>
-    <string name="tweet_number_two">Tweet number two</string>
-    <string name="tweet_number_3">Tweet number 3</string>
     <string name="search">Search</string>
     <string name="notifications">Notifications</string>
     <string name="create_account">Create Account</string>
-    <string name="sign_out">Sign-Out</string>
     <string name="messages">Messages</string>
     <string name="email">Email</string>
     <string name="username">Username</string>
-    <string name="accept">Ok</string>
+    <string name="accept">OK</string>
     <string name="decline">Cancel</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="news">News</string>
 </resources>

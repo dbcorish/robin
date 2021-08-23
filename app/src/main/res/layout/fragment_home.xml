@@ -33,8 +33,7 @@
                 android:layout_height="@dimen/standard_image"
                 android:background="@color/colorPrimary"
                 android:contentDescription="@string/user_profile_picture"
-                android:src="@drawable/default_user">
-            </ImageView>
+                android:src="@drawable/default_user" />
         </com.google.android.material.card.MaterialCardView>
 
         <!--        <ImageView-->
@@ -69,8 +68,7 @@
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:padding="2dp"
-                android:textColorHint="#616161">
-            </com.google.android.material.textfield.TextInputEditText>
+                android:textColorHint="#616161" />
         </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -112,8 +110,7 @@
         app:layout_constraintBottom_toTopOf="@id/tabLayout"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar">
-    </androidx.viewpager2.widget.ViewPager2>
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -126,6 +123,5 @@
         app:borderWidth="0dp"
         app:layout_constraintBottom_toTopOf="@id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/feather">
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        app:srcCompat="@drawable/feather" />
 </androidx.constraintlayout.widget.ConstraintLayout>
