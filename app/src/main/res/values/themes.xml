@@ -23,4 +23,6 @@
     <style name="VerticalThemeLayoutInputs">
         <item name="android:background">@color/transparent_grey</item>
     </style>
+    <style name="Dialog" parent = "Theme.MaterialComponents.Dialog.Alert">
+    </style>
 </resources>

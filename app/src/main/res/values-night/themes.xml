@@ -22,4 +22,7 @@
     <style name="VerticalThemeLayoutInputs">
         <item name="android:background">@color/transparent_grey</item>
     </style>
+    <style name="Dialog">
+        <item name="android:background">@color/black</item>
+    </style>
 </resources>
