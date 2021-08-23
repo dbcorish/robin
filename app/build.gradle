@@ -14,8 +14,8 @@ android {
         applicationId "com.dbcorish.robin"
         minSdk 21
         targetSdk 31
-        versionCode 5
-        versionName "0.2.6"
+        versionCode 6
+        versionName "0.3.0"
 
         resConfig "en"
     }
