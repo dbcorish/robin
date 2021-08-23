@@ -62,17 +62,16 @@ class HomeFragment : Fragment() {
                     else -> tab.setIcon(R.drawable.selector_messages)
                 }
             }.attach()
+            downloadProfileImage()
         }
 
         binding.profile.setOnClickListener {
             Navigation.findNavController(v).navigate(R.id.navigateFromHomeToProfile)
         }
-
-        downloadProfileImage()
     }
 
     fun downloadProfileImage() {
-        firebaseDB.collection(users).document(userID!!).get()
+        firebaseDB.collection(users).document(userID ?: return).get()
             .addOnSuccessListener { documentSnapshot ->
                 user = documentSnapshot.toObject(User::class.java)
                 user?.imageURL.let {
