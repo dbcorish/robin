@@ -29,6 +29,7 @@
             app:cardCornerRadius="@dimen/standard_corner_radius">
 
             <ImageView
+                android:id="@+id/profileImage"
                 android:layout_width="@dimen/standard_image"
                 android:layout_height="@dimen/standard_image"
                 android:background="@color/colorPrimary"

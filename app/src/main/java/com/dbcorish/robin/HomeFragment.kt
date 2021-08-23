@@ -16,13 +16,20 @@ import com.dbcorish.robin.homeFragments.MessagesFragment
 import com.dbcorish.robin.homeFragments.NewsFragment
 import com.dbcorish.robin.homeFragments.NotificationsFragment
 import com.dbcorish.robin.homeFragments.SearchFragment
+import com.dbcorish.robin.util.User
+import com.dbcorish.robin.util.loadURL
+import com.dbcorish.robin.util.users
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private val firebaseDB = FirebaseFirestore.getInstance()
+    private val userID = FirebaseAuth.getInstance().currentUser?.uid
+    private var user: User? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +67,21 @@ class HomeFragment : Fragment() {
         binding.profile.setOnClickListener {
             Navigation.findNavController(v).navigate(R.id.navigateFromHomeToProfile)
         }
+
+        downloadProfileImage()
+    }
+
+    fun downloadProfileImage() {
+        firebaseDB.collection(users).document(userID!!).get()
+            .addOnSuccessListener { documentSnapshot ->
+                user = documentSnapshot.toObject(User::class.java)
+                user?.imageURL.let {
+                    binding.profileImage.loadURL(it, R.drawable.default_user)
+                }
+            }
+            .addOnFailureListener { e ->
+                e.printStackTrace()
+            }
     }
 
     private class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
