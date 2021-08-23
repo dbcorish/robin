@@ -1,6 +1,8 @@
 package com.dbcorish.robin
 
 import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,15 +22,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.dbcorish.robin.databinding.FragmentProfileBinding
-import com.dbcorish.robin.util.User
-import com.dbcorish.robin.util.user_username
-import com.dbcorish.robin.util.users
+import com.dbcorish.robin.util.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.dbcorish.robin.util.user_email
+import com.google.firebase.storage.FirebaseStorage
+import java.net.URI
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -40,6 +41,8 @@ class ProfileFragment : Fragment() {
     private val user = auth.currentUser
     private val userID = auth.currentUser?.uid
     private var email = ""
+    private val firebaseStorage = FirebaseStorage.getInstance().reference
+    private var imageURL: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,10 +74,33 @@ class ProfileFragment : Fragment() {
             }, 300)
         }
 
+        binding.profilePhotoImage.setOnClickListener() {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, photo_request_code)
+        }
+
         setTextChangeListener(binding.userNameEditText, binding.userNameTextInputLayout)
         setTextChangeListener(binding.emailEditText, binding.emailTextInputLayout)
 
         downloadInfo()
+    }
+
+    private fun downloadInfo() {
+        binding.profileProgressLayout.visibility = View.VISIBLE
+        firebaseDB.collection(users).document(userID ?: return).get()
+            .addOnSuccessListener { documentSnapshot ->
+                val user = documentSnapshot.toObject(User::class.java)
+                binding.userNameEditText.setText(user?.username, TextView.BufferType.EDITABLE)
+                binding.emailEditText.setText(user?.email, TextView.BufferType.EDITABLE)
+                imageURL.let {
+                    binding.profilePhotoImage.loadURL(user?.imageURL, R.drawable.default_user)
+                }
+                email = (user?.email.toString())
+                binding.profileProgressLayout.visibility = View.GONE
+            }.addOnFailureListener { e ->
+                e.printStackTrace()
+            }
     }
 
     private fun onUpdateUserName() {
@@ -205,19 +231,54 @@ class ProfileFragment : Fragment() {
         }, 700)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == photo_request_code) {
+            storeImage(data?.data)
+        }
+    }
 
-    private fun downloadInfo() {
-        binding.profileProgressLayout.visibility = View.VISIBLE
-        firebaseDB.collection(users).document(userID ?: return).get()
-            .addOnSuccessListener { documentSnapshot ->
-                val user = documentSnapshot.toObject(User::class.java)
-                binding.userNameEditText.setText(user?.username, TextView.BufferType.EDITABLE)
-                binding.emailEditText.setText(user?.email, TextView.BufferType.EDITABLE)
-                binding.profileProgressLayout.visibility = View.GONE
-                email = (user?.email.toString())
-            }.addOnFailureListener { e ->
-                e.printStackTrace()
-            }
+    fun storeImage(imageURI: Uri?) {
+        imageURI?.let {
+            Toast.makeText(
+                this@ProfileFragment.requireActivity(),
+                "Uploading...",
+                Toast.LENGTH_SHORT
+            ).show()
+            binding.profileProgressLayout.visibility = View.VISIBLE
+            val filepath = firebaseStorage.child(images).child(userID ?: return@let)
+            filepath.putFile(imageURI)
+                .addOnSuccessListener {
+                    filepath.downloadUrl
+                        .addOnSuccessListener { uri ->
+                            val url = uri.toString()
+                            firebaseDB.collection(users).document(userID)
+                                .update(user_image_url, url)
+                                .addOnSuccessListener {
+                                    imageURL = url
+                                    binding.profilePhotoImage.loadURL(
+                                        imageURL,
+                                        R.drawable.default_user
+                                    )
+                                    binding.profileProgressLayout.visibility = View.GONE
+                                }
+                        }
+                        .addOnFailureListener() {
+                            onUploadFailure()
+                        }
+                }.addOnFailureListener() {
+                    onUploadFailure()
+                }
+        }
+    }
+
+    fun onUploadFailure() {
+        Toast.makeText(
+            this@ProfileFragment.requireActivity(),
+            "Image upload failed",
+            Toast.LENGTH_SHORT
+        ).show()
+        binding.profileProgressLayout.visibility = View.GONE
     }
 
     private fun setTextChangeListener(et: EditText, til: TextInputLayout) {
