@@ -9,10 +9,10 @@ I've chosen to create the app layout using XML because I'm more familiar with ho
 - Login functionality
 - Create account
 - Home screen
+- Profile screen (change profile picture, change username etc.)
 
 ## Working on
 
-- Profile screen (change profile picture, change username etc.)
 - Ability to send tweets
 - Ability to like tweets and follow users
 - Display of tweets on home screen
