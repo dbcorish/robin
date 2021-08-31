@@ -21,14 +21,15 @@ import com.dbcorish.robin.util.loadURL
 import com.dbcorish.robin.util.users
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private val firebaseDB = FirebaseFirestore.getInstance()
-    private val userID = FirebaseAuth.getInstance().currentUser?.uid
+    private val firebaseDB = Firebase.firestore
+    private val userID = Firebase.auth.currentUser?.uid
     private var user: User? = null
 
     override fun onCreateView(
@@ -68,9 +69,16 @@ class HomeFragment : Fragment() {
         binding.profile.setOnClickListener {
             Navigation.findNavController(v).navigate(R.id.navigateFromHomeToProfile)
         }
+
+        binding.tweetButton.setOnClickListener {
+            val userID = userID.toString()
+            val action = HomeFragmentDirections.navigateFromHomeToTweet(userID)
+            Navigation.findNavController(v).navigate(action)
+        }
     }
 
-    fun downloadProfileImage() {
+    // Updates profile image in top-left corner
+    private fun downloadProfileImage() {
         firebaseDB.collection(users).document(userID ?: return).get()
             .addOnSuccessListener { documentSnapshot ->
                 user = documentSnapshot.toObject(User::class.java)
@@ -83,6 +91,7 @@ class HomeFragment : Fragment() {
             }
     }
 
+    // For swiping between different tabs
     private class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         FragmentStateAdapter(fragmentManager, lifecycle) {
 

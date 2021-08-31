@@ -15,14 +15,15 @@ import com.dbcorish.robin.databinding.FragmentCreateAccountBinding
 import com.dbcorish.robin.util.User
 import com.dbcorish.robin.util.users
 import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class CreateAccountFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateAccountBinding
-    private val firebaseDB = FirebaseFirestore.getInstance()
-    private val firebaseAuth = FirebaseAuth.getInstance()
+    private val firebaseDB = Firebase.firestore
+    private val firebaseAuth = Firebase.auth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +44,7 @@ class CreateAccountFragment : Fragment() {
         binding.createPasswordEditText.onDone { onCreateAccount(v) }
     }
 
+    // Called when create account button pressed
     private fun onCreateAccount(v: View) {
         var check = true
         if (binding.createUsernameEditText.text.isNullOrEmpty()) {

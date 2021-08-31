@@ -1,7 +1,6 @@
 package com.dbcorish.robin
 
 import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -19,6 +18,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.dbcorish.robin.databinding.FragmentProfileBinding
@@ -27,21 +27,22 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import java.net.URI
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.util.*
 import kotlin.collections.HashMap
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
-    private val firebaseDB = FirebaseFirestore.getInstance()
-    private val auth = FirebaseAuth.getInstance()
-    private val user = auth.currentUser
-    private val userID = auth.currentUser?.uid
+    private val firebaseDB = Firebase.firestore
+    private val firebaseAuth = Firebase.auth
+    private val user = firebaseAuth.currentUser
+    private val userID = firebaseAuth.currentUser?.uid
     private var email = ""
-    private val firebaseStorage = FirebaseStorage.getInstance().reference
+    private val firebaseStorage = Firebase.storage.reference
     private var imageURL: String = ""
 
     override fun onCreateView(
@@ -74,10 +75,8 @@ class ProfileFragment : Fragment() {
             }, 300)
         }
 
-        binding.profilePhotoImage.setOnClickListener() {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, photo_request_code)
+        binding.profilePhotoImage.setOnClickListener {
+            getContent.launch("image/*")
         }
 
         setTextChangeListener(binding.userNameEditText, binding.userNameTextInputLayout)
@@ -86,6 +85,7 @@ class ProfileFragment : Fragment() {
         downloadInfo()
     }
 
+    // Downloads user's info from Firebase
     private fun downloadInfo() {
         binding.profileProgressLayout.visibility = View.VISIBLE
         firebaseDB.collection(users).document(userID ?: return).get()
@@ -103,6 +103,7 @@ class ProfileFragment : Fragment() {
             }
     }
 
+    // Updates username on Firebase
     private fun onUpdateUserName() {
         var check = true
         if (binding.userNameEditText.text.isNullOrEmpty()) {
@@ -137,6 +138,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    // Updates user's email (display confirm password dialogue)
     private fun onUpdateEmail() {
         var check = true
         if (binding.emailEditText.text.isNullOrEmpty()) {
@@ -179,6 +181,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    // Update user authentication email and stored email
     private fun updateFirebaseEmail(password: String) {
         binding.profileProgressLayout.visibility = View.VISIBLE
         val credential = EmailAuthProvider
@@ -231,14 +234,12 @@ class ProfileFragment : Fragment() {
         }, 700)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == photo_request_code) {
-            storeImage(data?.data)
-        }
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        storeImage(uri)
     }
 
-    fun storeImage(imageURI: Uri?) {
+    // Uploads profile image to Firebase
+    private fun storeImage(imageURI: Uri?) {
         imageURI?.let {
             Toast.makeText(
                 this@ProfileFragment.requireActivity(),
@@ -263,16 +264,16 @@ class ProfileFragment : Fragment() {
                                     binding.profileProgressLayout.visibility = View.GONE
                                 }
                         }
-                        .addOnFailureListener() {
+                        .addOnFailureListener {
                             onUploadFailure()
                         }
-                }.addOnFailureListener() {
+                }.addOnFailureListener {
                     onUploadFailure()
                 }
         }
     }
 
-    fun onUploadFailure() {
+    private fun onUploadFailure() {
         Toast.makeText(
             this@ProfileFragment.requireActivity(),
             "Image upload failed",

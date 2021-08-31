@@ -15,11 +15,12 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.dbcorish.robin.databinding.FragmentLoginBinding
 import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private val firebaseAuth = FirebaseAuth.getInstance()
+    private val firebaseAuth = Firebase.auth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +54,7 @@ class LoginFragment : Fragment() {
 
     }
 
+    // Called when login button pressed
     private fun onLogin(v: View) {
         var check = true
         if (binding.emailEditText.text.isNullOrEmpty()) {

@@ -114,6 +114,7 @@
         app:layout_constraintTop_toBottomOf="@id/topBar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tweetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
