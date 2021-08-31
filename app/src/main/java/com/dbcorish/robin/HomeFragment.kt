@@ -20,7 +20,6 @@ import com.dbcorish.robin.util.User
 import com.dbcorish.robin.util.loadURL
 import com.dbcorish.robin.util.users
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -45,8 +44,7 @@ class HomeFragment : Fragment() {
         imm.hideSoftInputFromWindow(v.windowToken, 0)
         v.clearFocus()
 
-        val user = FirebaseAuth.getInstance().currentUser?.uid
-        if (user == null) {
+        if (userID == null) {
             Navigation.findNavController(v).navigate(R.id.navigateFromHomeToLogin)
         } else {
             val viewPager = binding.viewPager
@@ -72,7 +70,7 @@ class HomeFragment : Fragment() {
 
         binding.tweetButton.setOnClickListener {
             val userID = userID.toString()
-            val action = HomeFragmentDirections.navigateFromHomeToTweet(userID)
+            val action = HomeFragmentDirections.navigateFromHomeToTweet(userID, user?.username.toString())
             Navigation.findNavController(v).navigate(action)
         }
     }

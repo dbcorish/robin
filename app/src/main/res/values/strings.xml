@@ -23,4 +23,6 @@
     <string name="decline">Cancel</string>
 
     <string name="news">News</string>
+    <string name="hint_tweet_text">What\'s happening?</string>
+    <string name="tweet">Tweet</string>
 </resources>

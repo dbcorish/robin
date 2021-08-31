@@ -23,7 +23,16 @@ class TweetFragment : Fragment() {
 
     override fun onViewCreated(v: View, savedInstanceState: Bundle?) {
         val userID = args.userID
+        val userName = args.userName
 
-        binding.textView.text = "My user ID is $userID"
+        binding.textView.text = "My user ID is $userID and username is $userName"
+
+        binding.tweetImage.setOnClickListener {
+            addImage()
+        }
+    }
+
+    private fun addImage() {
+
     }
 }
