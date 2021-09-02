@@ -25,4 +25,5 @@
     <string name="news">News</string>
     <string name="hint_tweet_text">What\'s happening?</string>
     <string name="tweet">Tweet</string>
+    <string name="camera_icon">Camera icon</string>
 </resources>

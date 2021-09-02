@@ -13,41 +13,57 @@
         android:layout_gravity="bottom"
         tools:context=".TweetFragment">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <EditText
-            android:id="@+id/tweetText"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/hint_tweet_text"
-            android:inputType="text"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/tweetImage"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tweetTIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="200dp"
-            android:scaleType="center"
-            app:layout_constraintTop_toBottomOf="@+id/tweetText" />
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            android:layout_margin="@dimen/grid_3x"
+            app:layout_constraintTop_toBottomOf="@+id/fabSend">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tweetText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_tweet_text"
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fabSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/grid_2x"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/grid_3x"
             android:backgroundTint="@color/red_500"
+            android:elevation="6dp"
             android:gravity="center"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
             android:text="@string/tweet"
             android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/tweetText"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/grid_3x"
+            android:backgroundTint="@color/red_500"
+            android:elevation="6dp"
+            android:src="@drawable/camera"
+            app:borderWidth="0dp"
+            android:contentDescription="@string/camera_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
             android:id="@+id/tweetProgressLayout"
