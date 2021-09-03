@@ -26,7 +26,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fabSend">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tweetText"
+                android:id="@+id/tweetEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_tweet_text"

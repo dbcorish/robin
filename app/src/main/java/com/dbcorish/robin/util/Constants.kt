@@ -10,3 +10,10 @@ const val user_followHashtags: String = "followHashtags"
 const val user_followUsers: String = "followUsers"
 
 const val images = "ProfileImages"
+
+const val tweets = "Tweets"
+const val tweet_user_ids = "userIDs"
+const val tweet_hashtags = "hashtags"
+const val tweet_likes = "likes"
+
+const val tweet_images = "TweetImages"
